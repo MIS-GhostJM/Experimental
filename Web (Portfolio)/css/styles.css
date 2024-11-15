@@ -1,0 +1,214 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #5b9bd5;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Section */
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Main grid for two horizontal sections */
+  gap: 1.5rem;
+  padding: 2rem;
+  align-items: start;
+}
+
+/* Primary Form Section - 2x2 Layout */
+.primary_form_section1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  grid-template-rows: auto auto; /* Two rows */
+  gap: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Assign grid areas */
+.primary_fixed {
+  grid-column: 1 / 2; /* Occupies the entire first column */
+  grid-row: 1 / 3;    /* Spans two rows */
+}
+
+.form_part3 {
+  grid-column: 2 / 3; /* Second column */
+  grid-row: 1 / 2;    /* First row */
+}
+
+.resolution_text_area {
+  grid-column: 2 / 3; /* Second column */
+  grid-row: 2 / 3;    /* Second row */
+}
+
+/* Styling for Sections */
+.primary_fixed, .form_part3, .resolution_text_area {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary_fixed:hover,
+.form_part3:hover,
+.resolution_text_area:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+h3, h4 {
+  margin-bottom: 1rem;
+  color: #5b9bd5;
+}
+
+.input_blocks {
+  margin-bottom: 1rem;
+}
+
+.input_blocks span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.primary_form_input, .form_part2_conditional_input, .form_part3_form_input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fefefe;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.primary_form_input:focus,
+.form_part2_conditional_input:focus,
+.form_part3_form_input:focus,
+select:focus,
+textarea:focus {
+  border-color: #5b9bd5;
+  background-color: #eef6fc;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Errands Note Section */
+.errands_note_section {
+  position: relative; /* Enable positioning for child elements */
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.errands_note_section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button in the upper-right corner */
+.errands_note_section button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #5b9bd5;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.errands_note_section button:hover {
+  background-color: #488cc8;
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* SVG icon inside the button */
+.errands_note_section button svg {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+.errands_note_section button:hover svg {
+  fill: #eef6fc;
+}
+
+/* Buttons */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  background-color: #5b9bd5;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #488cc8;
+  transform: scale(1.05);
+}
+
+button svg {
+  margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+      grid-template-columns: 1fr; /* Stack horizontally */
+  }
+
+  .primary_form_section1 {
+      grid-template-columns: 1fr; /* Single-column layout */
+      grid-template-rows: auto;
+  }
+
+  .primary_fixed, .form_part3, .resolution_text_area {
+      grid-column: 1 / 2; /* Each spans full width */
+  }
+}
+
+/* Smooth Transitions */
+input, select, textarea, button {
+  transition: all 0.3s ease;
+}

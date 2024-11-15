@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <span>ETI CHAT Script</span>
+    </header>
+    <main>
+        <!--primary form section-->
+        <section class="primary_form_section1" id="primary_form_section1">
+            <!--Column 1 form-->
+            <div class="primary_fixed">
+                <h3>Interaction Form</h3>
+                <div class="input_blocks">
+                    <span>Your name:</span>
+                    <input class="primary_form_input" type="text" id="your_name" onkeyup="update(this)">
+                </div>
+                <div class="input_blocks">
+                    <span>Customer's First Name: </span>
+                    <input class="primary_form_input" type="text" id="c_first_name" onkeyup="update(this)">
+                </div>
+                <div class="input_blocks">
+                    <span>Customer's Last Name: </span>
+                    <input class="primary_form_input" type="text" id="c_last_name" onkeyup="update(this)">
+                </div>
+                <div class="input_blocks">
+                    <span>Relationship: </span>
+                    <input class="primary_form_input" type="text" id="relationship" onkeyup="update(this)">
+                </div>
+                <div class="input_blocks">
+                    <span>Order Number: </span>
+                    <input class="primary_form_input" type="text" id="order_number" onkeyup="update(this)">
+                </div>
+                <div class="input_blocks">
+                    <span>Interaction ID: </span>
+                    <input class="primary_form_input" type="text" id="interactionid" onkeyup="update(this)">
+                </div>
+                <div class="input_blocks">
+                    <span>Reason for Chat: </span>
+                    <select class="primary_drpdwn_btn" id="intent" onchange="update(this)">
+                        <option value="intent_change">Change</option>
+                        <option value="intent_cancel">Cancel</option>
+                        <option value="intent_name_correction">Name Correction</option>
+                        <option value="intent_schedule_change">Schedule Change</option>
+                        <option value="intent_refund">Refund</option>
+                        <option value="intent_gdpr">GDPR</option>
+                        <option value="intent_inquiry">Inquiry</option>
+                        <option value="intent_other">Other</option>
+                        <option value="default" selected hidden disabled>Select intent</option>
+                    </select>
+                </div>
+                <!--Column 1 end-->
+                <!--Column Conditional-->
+                <!--Change-->
+                <div class="intent_change">
+                    <h4>Change Process Details</h4>
+                    <div class="input_blocks">
+                        <span>Total Amount to pay for change: </span>
+                        <input class="form_part2_conditional_input" type="number" id="change_total_amount" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Airline change fee: </span>
+                        <input class="form_part2_conditional_input" type="number" id="airline_change_fee" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Handling service fee: </span>
+                        <input class="form_part2_conditional_input" type="number" id="change_handling_fee" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Fare Difference: </span>
+                        <input class="form_part2_conditional_input" type="number" id="change_fare_difference" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>New Flight Details: </span>
+                        <input class="form_part2_conditional_input" type="text" id="change_new_flight_details" onkeyup="update(this)">
+                    </div>
+                </div>
+                <!--Cancel-->
+                <div class="intent_cancel">
+                    <h4>Cancellation Process Details</h4>
+                    <div class="input_blocks">
+                        <span>Total Amount to pay for cancellation: </span>
+                        <input class="form_part2_conditional_input" type="number" id="cancel_total_amount" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Airline cancellation fee: </span>
+                        <input class="form_part2_conditional_input" type="number" id="airline_cancel_fee" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Handling service fee: </span>
+                        <input class="form_part2_conditional_input" type="number" id="cancel_handling_fee" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Void Handling fee: </span>
+                        <input class="form_part2_conditional_input" type="number" id="cancel_void_handling_fee" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                </div>
+                <div class="intent_name_correction">
+                    <h4>Cancellation Process Details</h4>
+                    <div class="input_blocks">
+                        <span>Name to Change to: </span>
+                        <input class="form_part2_conditional_input" type="text" id="name_correction_new_name" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Airline name correction fee: </span>
+                        <input class="form_part2_conditional_input" type="number" id="airline_name_correction_fee" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                    <div class="input_blocks">
+                        <span>Handling service fee: </span>
+                        <input class="form_part2_conditional_input" type="number" id="name_correction_handling_fee" placeholder="0.00" onkeyup="update(this)">
+                    </div>
+                </div>
+            </div>
+            <!--Column Conditional end-->
+            <!--Column 2 Start-->
+            <div class="form_part3">
+                <h3>Additional Interaction Details</h3>
+                <div class="input_blocks">
+                    <span>Additional Request: </span>
+                    <select class="form_part3_drpdwn_btn" id="add_request" onchange="update(this)">
+                        <option value="add_request_baggage">Baggage</option>
+                        <option value="add_request_seat">Seat</option>
+                        <option value="add_request_sr">Special Request</option>
+                        <option value="add_request_other">Other</option>
+                        <option value="add_request_refund">N/A</option>
+                        <option value="default" selected hidden disabled>Select add request</option>
+                    </select>
+                </div>
+                <div class="input_blocks">
+                    <span>Chat Disconnected: </span>
+                    <select class="form_part3_drpdwn_btn" id="chat_disconnected" onchange="update(this)">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="na">N/A</option>
+                        <option value="default" selected hidden disabled>did you send an email?</option>
+                    </select>
+                </div>
+                <div class="input_blocks">
+                    <span>Sent Email: </span>
+                    <select class="form_part3_drpdwn_btn" id="email_sent" onchange="update(this)">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="na">N/A</option>
+                        <option value="default" selected hidden disabled>did you send an email?</option>
+                    </select>
+                </div>
+                <div class="input_blocks">
+                    <span>Added Ghost Line: </span>
+                    <select class="form_part3_drpdwn_btn" id="add_ghost_line" onchange="update(this)">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="na">N/A</option>
+                        <option value="default" selected hidden disabled>did you add a ghost line?</option>
+                    </select>
+                </div>
+                <div class="input_blocks">
+                    <span>Errands flow: </span>
+                    <select class="form_part3_drpdwn_btn" id="errands_flow" onchange="update(this)">
+                        <option value="registered_errand">Registered Errand</option>
+                        <option value="rebooking_wizard">Rebooking Wizard</option>
+                        <option value="cancellation_errand">Cancellation Errand</option>
+                        <option value="na">N/A</option>
+                        <option value="default" selected hidden disabled>Select errand flow</option>
+                    </select>
+                </div>
+                <div class="input_blocks">
+                    <span>YY RL Provided: </span>
+                    <select class="form_part3_drpdwn_btn" id="yy_rl_provided" onchange="update(this)">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="na">N/A</option>
+                        <option value="default" selected hidden disabled>Select</option>
+                    </select>
+                </div>
+                <div class="input_blocks">
+                    <span>Validated By:</span>
+                    <input class="form_part3_form_input" type="text" id="validator" onkeyup="update(this)">
+                </div>
+            </div>
+            <!--Column 3 end-->
+            <!--Column 4 Start-->
+            <div class="resolution_text_area">
+                <h4>Resolution</h4>
+                <p>what resolution did you provide to customer?</p>
+                <textarea class="resolution_area" id="resolution" maxlength="1000"></textarea>
+            </div>
+        </section>
+        <!--primary form section end-->
+        <!--Errand Note Section-->
+        <section class="errands_note_section" id="errands_note_section">
+            <div class="errand_note_container">
+                <div class="errand_note_title">
+                    <h4>Errands Note</h4>
+                </div>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368"><path d="M360-240q-29.7 0-50.85-21.15Q288-282.3 288-312v-480q0-29.7 21.15-50.85Q330.3-864 360-864h384q29.7 0 50.85 21.15Q816-821.7 816-792v480q0 29.7-21.15 50.85Q773.7-240 744-240H360Zm0-72h384v-480H360v480ZM216-96q-29.7 0-50.85-21.15Q144-138.3 144-168v-552h72v552h456v72H216Zm144-216v-480 480Z"/></svg>
+                </button>
+                <div class="errands_text_content">
+                    <p>Interaction ID: <a class="interactionid"></a></p>
+                    <p>Caller's Name: <a class="firstname"></a> <a class="lastname"></a></p>
+                    <p>Relationship: <a class="relationship"></a></p>
+                    <p>Chat Disconnected: <a class="chatdisconnect"></a></p>
+                    <p>Email Sent: <a class="emailsent"></a></p>
+                    <p>Reason for Chat: <a class="intent"></a></p>
+                    <p>Resolution:</p><a class="resolution"></a>
+                    <br>
+                    <!--Cancel script-->
+                    <div class="intent_cancel">
+                        <p>****Cancellation fee Breakdown****</p>
+                        <p>Airline Cancellation fee: <span class="airline_cancel_fee"></span></p>
+                        <p>Handling service fee: <span class="cancel_handling_fee"></span></p>
+                        <p class="void">void handling fee: <span class="cancel_void_handling_fee"></span> </p>
+                        <p>Cancellation Grand Total: <span class="cancel_total_amount"></span></p>
+                        <br>
+                    </div>
+                    <div class="intent_change">
+                        <p>****Change fee Breakdown****</p>
+                        <p>Airline Change fee: <span class="airline_change_fee"></span></p>
+                        <p>Fare DIfference: <span class="change_fare_difference"></span></p>
+                        <p>Handling service fee: <span class="change_handling_fee"></span></p>
+                        <p>Exchange Grand Total: <span class="change_total_amount"></span></p>
+                        <br>
+                        <p>---New Flight Details---</p>
+                        <span class="change_new_flight_details"></span>
+                        <br>
+                    </div>
+                    <div class="intent_name_correction">
+                        <p>****Name Correction fee Breakdown****</p>
+                        <p>Airline Name correction fee: <span class="airline_name_correction_fee"></span></p>
+                        <p>Handling service fee: <span class="name_correction_handling_fee"></span></p>
+                        <br>
+                        <p>Updated Name: <span class="name_correction_new_name"></span></p>  
+                    </div>
+                    <p>Additional Request: <a class="additionalrequest"></a></p>
+                    <p>Ghost Line: <a class="addghostline"></a></p>
+                    <p>YY RL Provided: <a class="yyrlprovided"></a></p>
+                    <p>Validated by: <a class="validator"></a></p>
+                </div>
+            </div>
+        </section>
+        <!--End of Errand Note Section-->
+    </main>
+</body>
+<script src="scripts/conditions_handler.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/concatenator.js"></script>
+</html>
